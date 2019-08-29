@@ -1,6 +1,5 @@
 
 <h2>點數後台 </h2><br>
- <br>
 請在本機新建一個專案，依資料庫規格開出localDB，並以分層式架構開發（需有Repository及service）。 <br>
 <h3>功能 </h3><br>
 1.	點數匯入機制 <br>
