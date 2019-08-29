@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - 我的 ASP.NET 應用程式</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+        <div class="navbar-brand nav-link" style="font-size:26px" href="@Url.Action("Index", "Point")">點數後台</div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            @Html.ActionLink("點數後台", "Index", "Point", new { area = "" }, new { @class = "navbar-brand" })
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="font-size:20px">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link " href="@Url.Action("Index", "Point")">首頁-匯入點數</a>
+                <a class="nav-item nav-link" href="@Url.Action("Search", "Point")">查詢點數</a>
+                <a class="nav-item nav-link" href="@Url.Action("ExchangePoint", "Point")">兌換點數</a>
+
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <div class="row text-center">
+            <p >&copy; @DateTime.Now.Year - 光點後台</p>
+                </div>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/point")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,84 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<br />
+<br />
+<br />
+
+
+<div class="info-header mb-5">
+    <h1 class="text-primary pb-3 text-center">
+        Points
+    </h1>
+
+</div>
+<div id="" class="">
+    @Html.Action("InsertPoint")
+</div>
+<br />
+<br />
+<div class="info-header mb-5">
+    <h1 class="text-primary pb-3 text-center">
+        Search
+    </h1>
+</div>
+
+@Html.AntiForgeryToken()
+
+<div class="bg-light py-5">
+    <div class="text-center mb-4 bg-light">
+        <h1 class="h3 mb-3 font-weight-normal text-primary">查詢點數</h1>
+    </div>
+    <section class="bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <input type="text" class="form-control form-control mb-resp" id="Search_Id" placeholder="客戶ID">
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control form-control mb-resp" id="Search_AcType" placeholder="點數來源">
+
+                </div>
+                <div class="col-md-4">
+                    <button type="button" class="btn btn-primary btn-block btnSearch" id="SearchButton">
+                        GOGO點數查詢
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+<div id="detailData">
+    @Html.Partial("_QueryResult")
+</div>
+
+<br />
+<div class="bg-light">
+    <div class="text-center mb-4 bg-light">
+        <br />
+        <h1 class="h3 mb-3 font-weight-normal text-primary">查詢點數Log</h1>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <input type="text" class="form-control form-control mb-resp" id="SearchLog_Id" placeholder="客戶ID">
+            </div>
+
+            <div class="col-md-4">
+                <button type="button" class="btn btn-primary btn-block" id="SearchLogButton">
+                    點數Log查詢
+                </button>
+            </div>
+        </div>
+    </div>
+    <br />
+</div>
+
+<div id="logDetailData">
+    @Html.Partial("_LogQueryResult")
+</div>

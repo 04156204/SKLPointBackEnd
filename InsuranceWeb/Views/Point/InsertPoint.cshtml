@@ -1,0 +1,34 @@
+﻿@model InsuranceWeb.Model.ViewModel.InsertViewModel
+@{
+    Layout = null;
+}
+<div class="bg-light">
+
+    <div class="text-center  mb-4 bg-light">
+        <br />
+        <h1 class="h3 mb-3 font-weight-normal text-primary ">匯入點數</h1>
+    </div>
+
+    <section class="bg-light">
+        <div class="container">
+            @using (Html.BeginForm("InsertPoint", "Home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { id = "insert-point-form", @class = "form-horizontal form-exc", role = "form", autocomplete = "off" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="mar-tb-5 input-label">@Html.LabelFor(m => m.ApplicantId)</div>
+                <input id="insertpoint-appid" type="text" name="@Html.NameFor(m => m.ApplicantId)" class="form-control" maxlength="10" />
+                @Html.ValidationMessageFor(m => m.ApplicantId)
+                <div class="mar-tb-5 input-label">@Html.LabelFor(m => m.Point)</div>
+                <input id="insertpoint-point" type="text" name="@Html.NameFor(m => m.Point)" class="form-control" maxlength="12" />
+                @Html.ValidationMessageFor(m => m.Point)
+                <div class="mar-tb-5 input-label">@Html.LabelFor(m => m.ActionContent)</div>
+                <input id="insertpoint-actioncon" type="text" name="@Html.NameFor(m => m.ActionContent)" class="form-control" maxlength="12" />
+                <br />
+                <div class="" style="">
+                    <input id="input-point" type="button" class="btn btn-primary btn-block btn-lg " value="匯入" data-form="insert-point-form" />
+                </div>
+            }
+            <br />
+        </div>
+    </section>
+
+</div>

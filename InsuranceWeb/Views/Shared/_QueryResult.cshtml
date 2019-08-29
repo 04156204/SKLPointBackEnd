@@ -1,0 +1,195 @@
+﻿
+@model List<InsuranceWeb.Model.InsurePoint>
+
+
+
+@if (Model == null)//.isEmpty()
+{
+}
+
+else
+{
+    <br />
+    <div>
+        <table class="table">
+            <thead class="bg-danger">
+                <tr style="color:#FFFFFF">
+                    <th>我的光點</th>
+                    <th>@ViewBag.sum 點</th>
+                </tr>
+            </thead>
+            <tbody>
+
+
+                @if (Model == null)//.isEmpty()
+                {
+                }
+                else
+                {
+                    if (ViewBag.sum > 0)
+                    {
+                        foreach (var expiryPoint in Model)
+                        {
+
+                            if (expiryPoint.ExpiryDate != null && expiryPoint.PointType != 4 && expiryPoint.UsablePoint > 0)/*4:註銷*/
+                            {
+                                <tr>
+                                    <td scope="row">@expiryPoint.ExpiryDate 前到期的點數</td>
+                                    <td>@expiryPoint.UsablePoint</td>
+                                </tr>}
+                        }
+                    }
+                }
+
+
+
+            </tbody>
+        </table>
+
+    </div>
+    @*<button type="button" class="btn btn-primary btnTEST" id="btnTEST">TEST</button>
+        <button type="button" class="btn btn-primary btnTEST" id="btnTEST2">TEST</button>*@
+
+
+    <div>
+        <table class="table">
+            <tr>
+                <th>流水號</th>
+                <th>客戶ID</th>
+                <th>點數來源</th>
+                <th>來源備註</th>
+                <th>險種</th>
+                <th>點數數量</th>
+                <th>可用點數</th>
+                <th>點數狀態</th>
+                <th>點數應核發日期</th>
+                <th>點數過期日期</th>
+                <th>紀錄平台</th>
+                <th>兌換交易代號</th>
+                <th>紀錄建立時間</th>
+                <th>紀錄異動日期</th>
+                <th></th>
+            </tr>
+
+            @if (Model == null)//.isEmpty()
+            {
+            }
+            else
+            {
+                foreach (var point in Model)
+                {
+                    <tr>
+                        <td>@point.Id</td>
+                        <td>@point.ApplicantId</td>
+                        @DisplayActionType(point.ActionType)
+                        <td>@point.ActionContent</td>
+                        <td>@point.PlanCode</td>
+                        <td>@point.Point</td>
+                        <td>@point.UsablePoint</td>
+                        @DisplayPointType(point.PointType)
+                        <td>@point.IssueDate</td>
+                        <td>@point.ExpiryDate</td>
+                        <td>@point.Source</td>
+                        <td>@point.TransID</td>
+                        <td>@point.CreateDate</td>
+                        <td>@point.UpdatedDate</td>
+
+                        @if (point.PointType == 4 || point.UsablePoint <= 0)
+                        {
+                            <td>
+                                <button type="button" class="btn btn-info btnCancel" data-id="@point.Id" disabled>註銷</button>
+                            </td>
+                        }
+                        else
+                        {
+                            <td>
+                                <button type="button" class="btn btn-info btnCancel" data-id="@point.Id">註銷</button>
+                            </td>
+                        }
+                    </tr>
+                }
+            }
+        </table>
+
+    </div>
+
+
+}
+@helper DisplayActionType(int typeNum)
+{
+
+    switch (typeNum)
+    {
+
+        case 1:
+            <td>
+                投保
+            </td>
+            break;
+
+        case 2:
+            <td>
+                後台抽獎
+            </td>
+            break;
+
+        case 3:
+            <td>
+                兌換
+            </td>
+            break;
+
+
+    }
+
+}
+
+
+
+@helper DisplayPointType(int typeNum)
+{
+
+    switch (typeNum)
+    {
+        case 0:
+            <td>
+                未確認是否給付點數
+            </td>
+            break;
+        case 1:
+            <td>
+                放棄點數
+            </td>
+            break;
+
+        case 2:
+            <td>
+                點數待核發
+            </td>
+            break;
+
+        case 3:
+            <td>
+                核發
+            </td>
+            break;
+        case 4:
+            <td>
+                註銷
+            </td>
+            break;
+        case 5:
+            <td>
+                已兌換
+            </td>
+            break;
+        case 99:
+            <td>
+                未符合資格 - 不處理
+            </td>
+            break;
+
+
+    }
+
+}

@@ -1,0 +1,33 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ExchangePoint</title>
+</head>
+
+<body>
+
+    <br />
+    <form class="form-exc">
+        <div class="text-center mb-4">
+            <img class="mb-4" src="@Url.Content("~/Images/tokens.svg")" alt="" width="128" height="128">
+            <h1 class="h3 mb-3 font-weight-normal">Exchange Points</h1>
+        </div>
+
+        <div class="form-label-group input-group-lg">
+            <label for="ExchangeAppID">客戶ID</label>
+            <input type="text" id="ExchangeAppID" class="form-control" placeholder="誰" required autofocus>
+        </div>
+        <br />
+        <div class="form-label-group input-group-lg ">
+            <label for="ExchangePoint">兌換點數</label>
+            <input type="text" id="ExchangePoint" class="form-control" placeholder="幾點" required>
+        </div>
+        <br />
+        <button class="btn btn-primary  btn-block btn-lg" id="ExchangeButton" type="button">兌換</button>
+    </form>
+</body>
+</html>
+
