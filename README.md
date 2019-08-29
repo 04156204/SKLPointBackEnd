@@ -1,5 +1,5 @@
 
-<h1>點數後台功能 </h1><br>
+<h2>點數後台 </h2><br>
  <br>
 請在本機新建一個專案，依資料庫規格開出localDB，並以分層式架構開發（需有Repository及service）。 <br>
  <br>
