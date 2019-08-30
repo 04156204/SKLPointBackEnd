@@ -1,0 +1,35 @@
+﻿
+@{
+    
+}
+
+
+
+<div style="height:70px"></div>
+
+<div>
+    <div style="font-family:'Microsoft JhengHei'">
+        <h1 style="font-size:58px;text-align:center"><b>點數後台管理系統</b></h1><br />
+        <center><font size="5" color="gray">歡迎使用本系統</font> </center>
+    </div>
+</div>
+<div class="row" style="padding-top:100px">
+    <div class="col-md-4" style="height:500px">
+        <img src="~/Images/add.png" class="form-control" style="height:auto;border:hidden;box-shadow:none" />
+        <div style="text-align:center;padding-top:25px">
+            @Html.ActionLink("匯入客戶點數", "Index", "Point", null, new { style = "font-size:37px;font-family:'Microsoft JhengHei'" })
+        </div>
+    </div>
+    <div class="col-md-4" style="height:500px">
+        <img src="~/Images/search.png" class="form-control" style="height:auto;border:hidden;box-shadow:none" />
+        <div style="text-align:center;padding-top:25px">
+            @Html.ActionLink("點數資料與Log查詢", "Search", "Point", null, new { style = "font-size:37px;font-family:'Microsoft JhengHei'" })
+        </div>
+    </div>
+    <div class="col-md-4" style="height:500px">
+        <img src="~/Images/exchange.png" class="form-control" style="height:auto;border:hidden;box-shadow:none" />
+        <div style="text-align:center;padding-top:25px">
+            @Html.ActionLink("點數兌換", "ExchangePoint", "Point", null, new { style = "font-size:37px;font-family:'Microsoft JhengHei'" })
+        </div>
+    </div>
+</div>
